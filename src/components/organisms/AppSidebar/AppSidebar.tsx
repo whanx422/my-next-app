@@ -1,7 +1,9 @@
-
 import { Paper } from '@mantine/core';
 import { IconFileText, IconUsers, IconFolder, IconCreditCard, IconSettings } from '@tabler/icons-react';
 import SidebarItem from '../../molecules/SidebarItem/SidebarItem';
+
+// If using a bundler that supports import of images, you can do:
+// import BIcon from '../../assets/b-icon.png';
 
 const AppSidebar = () => {
   const menuItems = [
@@ -26,15 +28,30 @@ const AppSidebar = () => {
       }}
       p="md"
     >
-      {/* Barum Header */}
+      {/* Barum Header with PNG icon */}
       <div style={{ 
-        fontSize: '24px', 
-        fontWeight: 'bold', 
+        display: 'flex', 
+        alignItems: 'center', 
         marginBottom: '24px',
         padding: '8px 0',
-        color: 'black'
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: '24px',
+        gap: 3,
       }}>
-        Barum
+        {/* PNG Icon */}
+        <img 
+          src="/barum.png" 
+          alt="B icon" 
+          style={{ 
+            width: 35, 
+            height: 35, 
+            objectFit: 'contain',
+            userSelect: 'none',
+          }} 
+        />
+        {/* The rest of the text */}
+        <span>arum</span>
       </div>
 
       {/* Main Navigation */}

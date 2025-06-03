@@ -1,10 +1,14 @@
 
-import { Box, Stack, Group, ActionIcon } from '@mantine/core';
+import { Box, Paper, Stack, Group, ActionIcon } from '@mantine/core';
 import { IconSearch, IconUpload, IconTemplate } from '@tabler/icons-react';
 import Text from '../../atoms/Text/Text';
 import Button from '../../atoms/Button/Button';
 
-const RightPanel = () => {
+interface RightPanelProps {
+  onExploreTemplates: () => void;
+}
+
+const RightPanel = ({ onExploreTemplates }: RightPanelProps) => {
   const frequentlyDraftedItems = [
     { label: 'NDA', type: 'document' },
     { label: 'MOU', type: 'document' },
@@ -43,6 +47,7 @@ const RightPanel = () => {
               justify="flex-start"
               fullWidth
               c="black"
+              onClick={onExploreTemplates}
             >
               Explore templates
             </Button>

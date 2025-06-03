@@ -6,8 +6,10 @@
       "DOM.Iterable",
       "ES2022"
     ],
+    // Remove or adjust "types" field:
+    // "types": ["react", "node"], <-- Try removing this line
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
     "allowImportingTsExtensions": true,
@@ -15,14 +17,12 @@
     "noEmit": true,
     "jsx": "preserve",
     "incremental": true,
-    /* Linting / Strictness */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    /* Paths */
     "baseUrl": ".",
     "paths": {
       "@/*": [

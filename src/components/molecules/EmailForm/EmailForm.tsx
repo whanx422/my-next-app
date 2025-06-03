@@ -23,6 +23,7 @@ const EmailForm = ({ onSignUpSuccess, onClose }: EmailFormProps) => {
     <Stack gap="md">
       <Input
         label="Create an account"
+        labelProps={{ style: { textAlign: 'center', display: 'block' } }}
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}

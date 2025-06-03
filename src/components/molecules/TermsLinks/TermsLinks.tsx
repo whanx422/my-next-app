@@ -1,5 +1,5 @@
 
-import { Text, Anchor, Group } from '@mantine/core';
+import { Text, Anchor } from '@mantine/core';
 
 const TermsLinks = () => {
   return (
