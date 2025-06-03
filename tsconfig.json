@@ -6,8 +6,6 @@
       "DOM.Iterable",
       "ES2022"
     ],
-    // Remove or adjust "types" field:
-    // "types": ["react", "node"], <-- Try removing this line
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,

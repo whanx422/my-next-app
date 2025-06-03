@@ -6,9 +6,10 @@ import Button from '../../atoms/Button/Button';
 
 interface RightPanelProps {
   onExploreTemplates: () => void;
+  onUploadDocument?: () => void;
 }
 
-const RightPanel = ({ onExploreTemplates }: RightPanelProps) => {
+const RightPanel = ({ onExploreTemplates, onUploadDocument }: RightPanelProps) => {
   const frequentlyDraftedItems = [
     { label: 'NDA', type: 'document' },
     { label: 'MOU', type: 'document' },
@@ -38,6 +39,7 @@ const RightPanel = ({ onExploreTemplates }: RightPanelProps) => {
               justify="flex-start"
               fullWidth
               c="black"
+              onClick={onUploadDocument}
             >
               Upload document
             </Button>

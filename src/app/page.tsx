@@ -1,6 +1,5 @@
-import TemplatesPage from "@/pages/TemplatePage/TemplatePage";
-const Index = () => {
-  return <TemplatesPage />;
-};
+import { redirect } from 'next/navigation';
 
-export default Index;
+export default function Home() {
+  redirect('/documentEditor');
+}

@@ -1,21 +1,54 @@
-import { Paper } from '@mantine/core';
+// src/components/organisms/AppSidebar/AppSidebar.tsx
+"use client";
+
+import { Stack, Paper } from '@mantine/core';
+import { useRouter, usePathname } from 'next/navigation';
 import { IconFileText, IconUsers, IconFolder, IconCreditCard, IconSettings } from '@tabler/icons-react';
 import SidebarItem from '../../molecules/SidebarItem/SidebarItem';
 
-// If using a bundler that supports import of images, you can do:
-// import BIcon from '../../assets/b-icon.png';
-
 const AppSidebar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const menuItems = [
-    { icon: IconFileText, label: 'Document Editor', active: true },
-    { icon: IconUsers, label: 'Engagements', active: false },
-    { icon: IconFolder, label: 'My Files', active: false }
+    { 
+      icon: IconFileText, 
+      label: 'Document Editor', 
+      href: '/',
+      active: pathname?.startsWith('/documentEditor') ?? false
+    },
+    { 
+      icon: IconUsers, 
+      label: 'Engagements', 
+      href: '/engagements',
+      active: pathname === '/engagements' 
+    },
+    { 
+      icon: IconFolder, 
+      label: 'My Files', 
+      href: '/files',
+      active: pathname === '/files' 
+    }
   ];
 
   const bottomItems = [
-    { icon: IconCreditCard, label: 'Free Plan' },
-    { icon: IconSettings, label: 'Settings' }
+    { 
+      icon: IconCreditCard, 
+      label: 'Free Plan',
+      href: '/billing',
+      active: pathname === '/billing'
+    },
+    { 
+      icon: IconSettings, 
+      label: 'Settings',
+      href: '/settings',
+      active: pathname === '/settings'
+    }
   ];
+
+  const handleNavigation = (href: string) => {
+    router.push(href);
+  };
 
   return (
     <Paper
@@ -28,30 +61,15 @@ const AppSidebar = () => {
       }}
       p="md"
     >
-      {/* Barum Header with PNG icon */}
+      {/* Barum Header */}
       <div style={{ 
-        display: 'flex', 
-        alignItems: 'center', 
+        fontSize: '24px', 
+        fontWeight: 'bold', 
         marginBottom: '24px',
         padding: '8px 0',
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: '24px',
-        gap: 3,
+        color: 'black'
       }}>
-        {/* PNG Icon */}
-        <img 
-          src="/barum.png" 
-          alt="B icon" 
-          style={{ 
-            width: 35, 
-            height: 35, 
-            objectFit: 'contain',
-            userSelect: 'none',
-          }} 
-        />
-        {/* The rest of the text */}
-        <span>arum</span>
+        Barum
       </div>
 
       {/* Main Navigation */}
@@ -62,6 +80,7 @@ const AppSidebar = () => {
             icon={item.icon}
             label={item.label}
             active={item.active}
+            onClick={() => handleNavigation(item.href)}
           />
         ))}
       </div>
@@ -73,6 +92,8 @@ const AppSidebar = () => {
             key={index}
             icon={item.icon}
             label={item.label}
+            active={item.active}
+            onClick={() => handleNavigation(item.href)}
           />
         ))}
       </div>
